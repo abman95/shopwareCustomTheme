@@ -1,0 +1,11 @@
+.btn.btn-primary.btn-buy {
+    transition: all ease 1s;
+    background-color: var(--bs-btn-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+
+.btn.btn-primary.btn-buy.show {
+    transition: all ease 1s;
+    background-color: red;
+    border-color: red;
+}
