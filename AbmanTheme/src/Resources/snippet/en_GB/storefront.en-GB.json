@@ -529,6 +529,7 @@
     "ordernumberLabel": "Product number:",
     "productNumberLabel": "Product number:",
     "addProduct": "Add to shopping cart",
+    "addProductClickAnimation": "Being added to shopping cart",
     "tabsDescription": "Description",
     "tabsPreviewMore": "More",
     "descriptionTitle": "Product information",

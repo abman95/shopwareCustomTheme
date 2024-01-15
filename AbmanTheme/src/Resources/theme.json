@@ -18,5 +18,35 @@
   "asset": [
     "@Storefront",
     "app/storefront/src/assets"
-  ]
+  ],
+  "config": {
+    "blocks": {
+      "eCommerce": {
+        "label": {
+          "en-GB": "Color Settings",
+          "de-DE": "Farbeinstellungen"
+        }
+      }
+    },
+    "section": {
+      "cartClickAnimationColor": {
+        "label": {
+          "en-GB": "Cart add animation",
+          "de-DE": "Warenkorb hinzufügen Animation"
+        }
+      }
+    },
+    "fields": {
+      "cartClickAnimationColor": {
+        "label": {
+          "en-GB": "Cart Click Animation Color",
+          "de-DE": "Warenkorb klick Animation"
+        },
+        "type": "color",
+        "block": "eCommerce",
+        "section": "cartClickAnimationColor",
+        "value": "#808080"
+      }
+    }
+  }
 }

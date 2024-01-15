@@ -1,12 +1,19 @@
-//addToCartButtonAnimation.textContents will be replaced by a variable which will be imported from the storefront.de-DE.json files
+const CLASS_CLICK_ANIMATION = 'clickAnimation';
+const DISPLAY_NONE = 'none';
+const DISPLAY_INLINE = 'inline';
+const ANIMATION_DURATION = 1000;
 
-const addToCartButtonAnimation = document.querySelector('.btn.btn-primary.btn-buy');
+const addToCartButton = document.querySelector('.btn.btn-primary.btn-buy');
+const defaultText = document.querySelector('.addProduct-default-text');
+const clickAnimationText = document.querySelector('.addProduct-click-animation-text');
 
-addToCartButtonAnimation.addEventListener('click', () => {
-    addToCartButtonAnimation.classList.add('show');
-    addToCartButtonAnimation.textContent = "Wird in den Warenkorb gelegt";
-    setTimeout(() => {
-        addToCartButtonAnimation.classList.remove('show');
-        addToCartButtonAnimation.textContent = "In den Warenkorb";
-    } ,1000);   
+function toggleAnimation() {
+    addToCartButton.classList.toggle(CLASS_CLICK_ANIMATION);
+    defaultText.style.display = addToCartButton.classList.contains(CLASS_CLICK_ANIMATION) ? DISPLAY_NONE : DISPLAY_INLINE;
+    clickAnimationText.style.display = addToCartButton.classList.contains(CLASS_CLICK_ANIMATION) ? DISPLAY_INLINE : DISPLAY_NONE;
+}
+
+addToCartButton.addEventListener('click', () => {
+    toggleAnimation();
+    setTimeout(toggleAnimation, ANIMATION_DURATION);
 });

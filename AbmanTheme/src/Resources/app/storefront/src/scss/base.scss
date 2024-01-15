@@ -4,8 +4,21 @@
     border-color: var(--bs-btn-hover-border-color);
 }
 
-.btn.btn-primary.btn-buy.show {
+.btn.btn-primary.btn-buy.clickAnimation {
     transition: all ease 1s;
-    background-color: red;
-    border-color: red;
+    background-color: $cartClickAnimationColor;
+    border-color: $cartClickAnimationColor;
+}
+
+.addProduct-default-text,
+.addProduct-click-animation-text {
+    display: none;
+}
+
+.btn.btn-primary.btn-buy.clickAnimation .addProduct-click-animation-text {
+    display: inline;
+}
+
+.btn.btn-primary.btn-buy:not(.clickAnimation) .addProduct-default-text {
+    display: inline;
 }
