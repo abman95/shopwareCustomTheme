@@ -1,0 +1,27 @@
+{% block faq_module_index %}
+    <sw-page class="faq-module-index">
+        <template slot="content">
+            <h1>Hier können Sie Ihre Produkt FAQs bearbeiten!</h1>
+            <div class="faqContainer">
+                <sw-select-field
+                    :options="mainProductsOptions"
+                    v-model="selectedProductId"
+                    label="Produkt auswählen"
+                ></sw-select-field>
+                <sw-text-field
+                    label="Frage"
+                    v-model="question">
+                </sw-text-field>
+
+                <sw-text-field
+                    label="Antwort"
+                    v-model="answer">
+                </sw-text-field>
+
+                <sw-button @click="saveFAQ">FAQ speichern</sw-button>
+                <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
+                <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            </div>
+        </template>
+    </sw-page>
+{% endblock %}
