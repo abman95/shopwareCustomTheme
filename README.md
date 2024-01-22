@@ -10,15 +10,15 @@ Operating System Used for Instruction: Linux Kubuntu
 ### Quick Guide: Shopware Theme Installation and Setup on Linux Kubuntu with Docker and Visual Studio Code
 
 #### Terminal Instructions:
-    -   docker run -p 80:80 dockware/dev:latest
+    -   `docker run -p 80:80 dockware/dev:latest`
 
-#### Wait until the container is fully started.
+Wait until the container is fully started.
 
-#### Now, clone the Git repository into the running container. 
+Now, clone the Git repository into the running container. 
 
-#### You might need to access the container's shell to run this command, depending on your setup.
+You might need to access the container's shell to run this command, depending on your setup.
 
-    -   git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme
+    -   `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme`
 
 #### In Visual Studio Code:
 
@@ -29,19 +29,19 @@ Operating System Used for Instruction: Linux Kubuntu
 3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
 
 #### In the Visual Studio Code Terminal:
-    -   cd /var/www/html
-    -   bin/console plugin:refresh
-    -   bin/console plugin:install --activate AbmanTheme
-    -   bin/console theme:change
+    -   `cd html`
+    -   `bin/console plugin:refresh`
+    -   `bin/console plugin:install --activate AbmanTheme`
+    -   `bin/console theme:change`
 
 #### Choose "1" for AbmanTheme when prompted.
 
 #### For "Please select a sales channel:", choose "0" for Storefront.
 
-    -   bin/console theme:compile
-    -   bin/build-storefront.sh
-    -   bin/build-administration.sh
-    -   bin/build-js.sh
+    -   `bin/console theme:compile`
+    -   `bin/build-storefront.sh`
+    -   `bin/build-administration.sh`
+    -   `bin/build-js.sh`
 
 #### Test the features by visiting localhost and localhost/admin in your browser.
 
