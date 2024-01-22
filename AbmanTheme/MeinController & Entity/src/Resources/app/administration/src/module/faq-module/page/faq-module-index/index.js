@@ -116,9 +116,9 @@ Shopware.Component.register('faq-module-index', {
             this.faqRepository.forEach((obj, index) => {
                 if (!obj.question || obj.answer) return;
                 const div = this.createFaqElement('div', 'faq-unanswered-container');
-                const question = this.createFaqElement('p', 'faq-unanswered-question', `Frage: ${obj.question}. Produkt: ${obj.productName}`);
-                const faqAnswerInput = this.createFaqElement('input', 'faq-unanswered-answer-input', null, 'Antwort eingeben', `faqAnswerInput${index}`);
-                const submitFaqAnswer = this.createFaqElement('button', 'faq-unanswered-submit-button', 'Antwort senden', null, null, () => this.saveFAQAnswer(index));
+                const question = this.createFaqElement('p', 'faq-unanswered-question', `Question: ${obj.question}. Product: ${obj.productName}`);
+                const faqAnswerInput = this.createFaqElement('input', 'faq-unanswered-answer-input', null, 'Enter answer', `faqAnswerInput${index}`);
+                const submitFaqAnswer = this.createFaqElement('button', 'faq-unanswered-submit-button', 'Send answer', null, null, () => this.saveFAQAnswer(index));
         
                 div.appendChild(question);
                 div.appendChild(faqAnswerInput);

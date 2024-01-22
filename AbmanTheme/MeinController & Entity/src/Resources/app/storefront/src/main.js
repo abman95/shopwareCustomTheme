@@ -86,8 +86,8 @@ function displayAnsweredFAQs() {
 faqRepository.forEach((obj) => {
     if (obj.answer && obj.productName === currentProductName) {
         const div = createFaqElement('div', 'faq-answered-container');
-        const question = createFaqElement('h2', 'faq-answered-question-question', `Frage: ${obj.question}`);
-        const answer = createFaqElement('p', 'faq-answered-answer', `Antwort: ${obj.answer}`);
+        const question = createFaqElement('h2', 'faq-answered-question-question', `Question: ${obj.question}`);
+        const answer = createFaqElement('p', 'faq-answered-answer', `Answer: ${obj.answer}`);
 
         div.appendChild(question);
         div.appendChild(answer);
