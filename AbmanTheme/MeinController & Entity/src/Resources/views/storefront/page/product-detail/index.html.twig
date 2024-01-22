@@ -6,10 +6,10 @@
                     </div>
                     <div>
                         <hr>
-                        <h1 id="product-detail-page-faq-header">Produkt FAQ:</h1>
-                        <input type="text" id="faqQuestionInput" placeholder="Frage eingeben">
+                        <h1 id="product-detail-page-faq-header">{{ "detail.productFAQHeader"|trans|sw_sanitize }}</h1>
+                        <input type="text" id="faqQuestionInput" placeholder="{{ "detail.productFAQQuestionInputPlaceholder"|trans|sw_sanitize }}">
                         <br>
-                        <button id="faqQuestionSubmit">Frage senden</button>
+                        <button id="faqQuestionSubmit">{{ "detail.productFAQQuestionSubmit"|trans|sw_sanitize }}</button>
                         <p id="faqQuestionSubmitStatus"></p>
                         <div id="answeredFAQs"></div>
                     </div>

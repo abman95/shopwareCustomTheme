@@ -3,30 +3,31 @@
         <template slot="content">
             
             <div class="faqContainer">
-            <h1>Hier können Sie Ihre Produkt FAQs bearbeiten!</h1>
+            <h1>Edit FAQs here!</h1>
                 <sw-select-field
                     :options="mainProductsOptions"
                     v-model="selectedProductId"
-                    label="Produkt auswählen"
+                    label="Select Product"
                 ></sw-select-field>
                 <sw-text-field
-                    label="Frage"
+                    label="Question"
                     v-model="question">
                 </sw-text-field>
 
                 <sw-text-field
-                    label="Antwort"
+                    label="Answer"
                     v-model="answer">
                 </sw-text-field>
 
-                <sw-button @click="saveFAQ">FAQ speichern</sw-button>
+                <sw-button @click="saveFAQ">Save FAQ</sw-button>
                 <div v-if="successMessage" class="alert alert-success">{{ successMessage }}</div>
                 <div v-if="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
             
                 <div id="displayUnansweredFAQContainer">
-                    <h1>Unbeantworteten FAQ Fragen</h1>
+                    <h1>Unanswered FAQ questions</h1>
                     <div id="displayUnansweredFAQ"></div>
                 </div>
+                <sw-button @click="resetFAQ">FAQ RESET</sw-button>
             </div>
         </template>
     </sw-page>
