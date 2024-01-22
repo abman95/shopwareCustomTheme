@@ -28,7 +28,7 @@ Now, clone the Git repository into the running container. 
 You might need to access the container's shell to run this command, depending on your setup.
 
 - `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/Theme`
-Move the "AbmanTheme" folder to html/custom/plugins and delete the Theme folder.
+Move the "AbmanTheme" folder from the `Theme` folder to html/custom/plugins and afterwards delete the Theme folder.
 
 Then run following codes:
 - `cd html`
