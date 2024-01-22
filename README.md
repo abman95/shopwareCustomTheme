@@ -18,7 +18,7 @@ Now, clone the Git repository into the running container. 
 
 You might need to access the container's shell to run this command, depending on your setup.
 
-- `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme`
+- `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins`
 
 #### In Visual Studio Code:
 
