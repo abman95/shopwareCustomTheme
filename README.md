@@ -29,10 +29,10 @@ You might need to access the container's shell to run this command, depending on
 3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
 
 #### In the Visual Studio Code Terminal:
-`cd html`
-`bin/console plugin:refresh`
-`bin/console plugin:install --activate AbmanTheme`
-`bin/console theme:change`
+-`cd html`
+-`bin/console plugin:refresh`
+-`bin/console plugin:install --activate AbmanTheme`
+-`bin/console theme:change`
 
 #### Choose "1" for AbmanTheme when prompted.
 
