@@ -8,47 +8,48 @@
 Operating System Used for Instruction: Linux Kubuntu
 
 ### Quick Guide: Shopware Theme Installation and Setup on Linux Kubuntu with Docker and Visual Studio Code
-docker run -p 80:80 dockware/dev:latest
 
-##### Wait until the container is fully started.
+#### Terminal Instructions:
 
-##### Now, clone the Git repository into the running container. 
+-   Run the command: `docker run -p 80:80 dockware/dev:latest`.
+-   Wait until the container is fully started.
+-   Clone the Git repository into the running container using the command: `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme`.
 
-##### You might need to access the container's shell to run this command, depending on your setup.
+#### Setting Up in IDE Visual Studio Code:
 
-git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme
-
-#### In Visual Studio Code:
-
-1. Install the "Docker for Visual Studio Code" extension.
-
-2. Click the blue button at the bottom left.
-
-3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
+-   Install the "Docker for Visual Studio Code" extension.
+-   Click the blue button at the bottom left of the IDE.
+-   Choose "Attach to running Container" and select the "dockware/dev:latest" container.
 
 #### In the Visual Studio Code Terminal:
 
-cd html
+-   Navigate to the html directory: `cd /var/www/html`.
+-   Refresh the plugin list: `bin/console plugin:refresh`.
+-   Install and activate the AbmanTheme: `bin/console plugin:install --activate AbmanTheme`.
+-   Change the theme: `bin/console theme:change`.
+    -   Choose `1` for AbmanTheme when prompted.
+    -   For "Please select a sales channel:", choose `0` for Storefront.
+-   Compile the theme and build scripts:
+    -   `bin/console theme:compile`
+    -   `bin/build-storefront.sh`
+    -   `bin/build-administration.sh`
+    -   `bin/build-js.sh`
 
-bin/console plugin:refresh
+#### Testing Features:
 
-bin/console plugin:install --activate AbmanTheme
+-   Visit `localhost` and `localhost/admin` in your browser to test the features.
 
-bin/console theme:change
+##### Feature 1: Enhanced Shopping Cart Button
 
-# Choose "1" for AbmanTheme when prompted.
+-   In `localhost`, open a product. The "Add to shopping cart" button shows an animation effect for 1 second upon clicking.
+-   To modify this animation color, log into `localhost/admin` with Username `admin` and Password `shopware`.
+-   Navigate to `Content/Themes`, select `AbmanTheme`, and adjust the "Cart Click Animation Color" under Color Settings.
 
-# For "Please select a sales channel:", choose "0" for Storefront.
+##### Feature 2: Product FAQ Functionality (Local Storage)
 
-bin/console theme:compile
-
-bin/build-storefront.sh
-
-bin/build-administration.sh
-
-bin/build-js.sh
-
-# Test the features by visiting localhost and localhost/admin in your browser.
+-   On `localhost/admin`, go to `Catalogues/Products/Product FAQ`.
+-   On the product detail page, users can submit questions under "Produkt FAQ:".
+-   These questions are stored locally using LocalStorage and appear under "Unbeantworteten FAQ Fragen" in the `Catalogues/Products/Product FAQ` section.
 
 
 
