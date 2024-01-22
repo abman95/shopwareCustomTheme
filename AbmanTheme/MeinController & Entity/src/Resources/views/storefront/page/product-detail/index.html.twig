@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/index.html.twig' %}
+
+                {% block page_product_detail_tabs %}
+                    <div class="product-detail-tabs">
+                        {% sw_include '@Storefront/storefront/page/product-detail/tabs.html.twig' %}
+                    </div>
+                    <div>
+                        <hr>
+                        <h1 id="product-detail-page-faq-header">Produkt FAQ:</h1>
+                        <input type="text" id="faqQuestionInput" placeholder="Frage eingeben">
+                        <br>
+                        <button id="faqQuestionSubmit">Frage senden</button>
+                        <p id="faqQuestionSubmitStatus"></p>
+                        <div id="answeredFAQs"></div>
+                    </div>
+                {% endblock %}

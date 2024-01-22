@@ -63,37 +63,25 @@ function faqQuestionSubmit() {
 
 function faqQuestionSubmitStatusSuccess() {
     const savedDataString = JSON.stringify(faqRepository, null, 2);
-    faqQuestionSubmitStatus.textContent = `Question was send.`; //This is what has been send: ${savedDataString}
+    faqQuestionSubmitStatus.textContent = `FAQ wurde gespeichert. Diese Daten wurden gespeichert: ${savedDataString}`;
     faqQuestionSubmitStatus.style.color = 'green';
 }
 
 function faqQuestionSubmitStatusError() {
-    faqQuestionSubmitStatus.textContent = `Error: Question was not send.`;
+    faqQuestionSubmitStatus.textContent = `Error: FAQ wurde nicht gespeichert.`;
     faqQuestionSubmitStatus.style.color = 'red';
 }
 
-function createFaqElement(tag, className, textContent) {
-    const element = document.createElement(tag);
-    element.className = className;
-    if (textContent) element.textContent = textContent;
-    return element;
-}
-
 function displayAnsweredFAQs() {
-    const currentProductName = getProductName();
     const answeredFAQs = document.getElementById('answeredFAQs');
     answeredFAQs.innerHTML = '';
-faqRepository.forEach((obj) => {
-    if (obj.answer && obj.productName === currentProductName) {
-        const div = createFaqElement('div', 'faq-answered-container');
-        const question = createFaqElement('h2', 'faq-answered-question-question', `Frage: ${obj.question}`);
-        const answer = createFaqElement('p', 'faq-answered-answer', `Antwort: ${obj.answer}`);
-
-        div.appendChild(question);
-        div.appendChild(answer);
-        answeredFAQs.appendChild(div);
-    }
-});
+    faqRepository.forEach((obj) => {
+        if (obj.answer) {
+            const div = document.createElement('div');
+            div.textContent = `Frage: ${obj.question} - Antwort: ${obj.answer} - Produkt: ${obj.productName}`;
+            answeredFAQs.appendChild(div);
+        }
+    });
 }
 
 document.getElementById('faqQuestionSubmit').addEventListener('click', faqQuestionSubmit);

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="AbmanTheme.faq.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
+            <argument type="service" id="AbmanTheme.faq_entity.definition" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="AbmanTheme.faq_entity.definition" class="AbmanTheme\Core\Content\FaqEntity\FaqEntityDefinition">
+         <tag name="shopware.entity.definition" entity="faq_entity"/>
+        </service>
+
+        <service id="AbmanTheme.faq_translation.definition" class="AbmanTheme\Core\Content\FaqEntity\Aggregate\FaqTranslation\FaqTranslationDefinition">
+            <tag name="shopware.entity.definition" entity="faq_translation"/>
+        </service>
+
+        <service id="AbmanTheme\Controller\FaqController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
+        </service>
+    </services>
+</container>

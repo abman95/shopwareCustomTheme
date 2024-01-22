@@ -11,7 +11,7 @@ Shopware.Component.register('faq-module-index', {
             question: '',
             answer: '',
             isLoading: false,
-            faqRepository: [],
+            faqRepository: JSON.parse(localStorage.getItem('faqRepository')) || [],
             productRepository: null,
             successMessage: '',
             errorMessage: '',
@@ -44,16 +44,6 @@ Shopware.Component.register('faq-module-index', {
     },
     
     methods: {
-        loadFAQRepository() {
-            const storedFAQs = JSON.parse(localStorage.getItem('faqRepository')) || [];
-            this.faqRepository.splice(0, this.faqRepository.length, ...storedFAQs);
-        },
-    
-        updateFAQRepository() {
-            localStorage.setItem('faqRepository', JSON.stringify(this.faqRepository));
-            this.loadFAQRepository(); // Aktualisiert die FAQ-Liste, um Reaktivität sicherzustellen
-        },
-
         loadMainProducts() {
             this.isLoading = true;
             const criteria = new Shopware.Data.Criteria();
@@ -65,21 +55,27 @@ Shopware.Component.register('faq-module-index', {
                     this.isLoading = false;
                 })
                 .catch(error => {
-                    console.error('Error Loading Main Products:', error);
+                    console.error('Fehler beim Laden der Hauptprodukte:', error);
                     this.isLoading = false;
                 });
         },
 
         async saveFAQ() {
-            if (!this.selectedProductId || !this.question || !this.answer) {
-                this.errorMessage = 'Please fill in all the fields.';
+            /*if (!this.selectedProductId || !this.question || !this.answer) {
+                this.errorMessage = 'Bitte füllen Sie alle Felder aus.';
+                setTimeout(() => { this.errorMessage = ''; }, 8000);
+                return;
+            }
+            */
+           if (!this.selectedProductId || !this.question) {
+                this.errorMessage = 'Bitte füllen Sie alle Felder aus.';
                 setTimeout(() => { this.errorMessage = ''; }, 8000);
                 return;
             }
 
             const selectedProduct = this.mainProducts.find(product => product.id === this.selectedProductId);
             if (!selectedProduct) {
-                this.errorMessage = 'Selected product not found.';
+                this.errorMessage = 'Ausgewähltes Produkt nicht gefunden.';
                 setTimeout(() => { this.errorMessage = ''; }, 8000);
                 return;
             }
@@ -88,7 +84,7 @@ Shopware.Component.register('faq-module-index', {
             this.faqRepository.push(faqData);
             localStorage.setItem('faqRepository', JSON.stringify(this.faqRepository));
             const savedDataString = JSON.stringify(this.faqRepository, null, 2);
-            this.successMessage = `FAQ has been saved.`; //These data have been saved: ${savedDataString}
+            this.successMessage = `FAQ wurde gespeichert. Diese Daten wurden gespeichert: ${savedDataString}`;
             setTimeout(() => { this.successMessage = ''; }, 5000);
         },
 
@@ -99,44 +95,40 @@ Shopware.Component.register('faq-module-index', {
             this.displayUnansweredFAQ();
         },
 
-        createFaqElement(tag, className, textContent, placeholder, id, clickHandler) {
-            const element = document.createElement(tag);
-            element.className = className;
-            if (textContent) element.textContent = textContent;
-            if (placeholder) element.placeholder = placeholder;
-            if (id) element.id = id;
-            if (clickHandler) element.addEventListener('click', clickHandler);
-            return element;
-        },
-
         displayUnansweredFAQ() {
             const unansweredFaq = document.getElementById('displayUnansweredFAQ');
             unansweredFaq.innerHTML = '';
-        
             this.faqRepository.forEach((obj, index) => {
-                if (!obj.question || obj.answer) return;
-                const div = this.createFaqElement('div', 'faq-unanswered-container');
-                const question = this.createFaqElement('p', 'faq-unanswered-question', `Frage: ${obj.question}. Produkt: ${obj.productName}`);
-                const faqAnswerInput = this.createFaqElement('input', 'faq-unanswered-answer-input', null, 'Antwort eingeben', `faqAnswerInput${index}`);
-                const submitFaqAnswer = this.createFaqElement('button', 'faq-unanswered-submit-button', 'Antwort senden', null, null, () => this.saveFAQAnswer(index));
+                if (obj.question && !obj.answer) {
+                    const div = document.createElement('div');
+                    div.className = 'faq-unanswered-container';
         
-                div.appendChild(question);
-                div.appendChild(faqAnswerInput);
-                div.appendChild(submitFaqAnswer);
-                unansweredFaq.appendChild(div);
+                    const question = document.createElement('p');
+                    question.className = 'faq-unanswered-question';
+                    question.textContent = `Frage: ${obj.question}. Produkt: ${obj.productName}`;
+                    div.appendChild(question);
+        
+                    const faqAnswerInput = document.createElement('input');
+                    faqAnswerInput.className = 'faq-unanswered-answer-input';
+                    faqAnswerInput.id = `faqAnswerInput${index}`;
+                    faqAnswerInput.placeholder = 'Antwort eingeben';
+                    div.appendChild(faqAnswerInput);
+        
+                    const submitFaqAnswer = document.createElement('button');
+                    submitFaqAnswer.className = 'faq-unanswered-submit-button';
+                    submitFaqAnswer.textContent = 'Antwort senden';
+                    submitFaqAnswer.addEventListener('click', () => this.saveFAQAnswer(index));
+                    div.appendChild(submitFaqAnswer);
+        
+                    unansweredFaq.appendChild(div);
+                }
             });
-        },        
-
-
-        resetFAQ() {
-            this.faqRepository = [];
-            localStorage.setItem('faqRepository', JSON.stringify(this.faqRepository));
-            this.displayUnansweredFAQ();
-        },
+        }
+        
+        
     },
 
     mounted() {
-        this.loadFAQRepository();
         this.displayUnansweredFAQ();
     }
 });

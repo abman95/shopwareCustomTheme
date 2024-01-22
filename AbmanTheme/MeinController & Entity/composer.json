@@ -1,0 +1,18 @@
+{
+  "name": "swag/theme-skeleton",
+  "description": "Theme skeleton plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "AbmanTheme\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "AbmanTheme\\AbmanTheme",
+    "label": {
+      "de-DE": "Theme AbmanTheme plugin",
+      "en-GB": "Theme AbmanTheme plugin"
+    }
+  }
+}

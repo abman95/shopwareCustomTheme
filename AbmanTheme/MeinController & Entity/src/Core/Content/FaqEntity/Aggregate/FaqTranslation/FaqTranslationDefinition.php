@@ -1,5 +1,8 @@
 <?php declare(strict_types=1);
 
+namespace AbmanTheme\Core\Content\FaqEntity\Aggregate\FaqTranslation;
+
+use AbmanTheme\Core\Content\FaqEntity\FaqEntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityTranslationDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;

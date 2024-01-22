@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace AbmanTheme\Core\Content\FaqEntity;
+
 use AbmanTheme\Core\Content\FaqEntity\FaqCollection;
 use AbmanTheme\Core\Content\FaqEntity\FaqEntity;
 use Shopware\Core\Content\Product\ProductEntity;
