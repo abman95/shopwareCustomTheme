@@ -10,23 +10,23 @@ Operating System Used for Instruction: Linux Kubuntu
 ### Quick Guide: Shopware Theme Installation and Setup on Linux Kubuntu with Docker and Visual Studio Code
 docker run -p 80:80 dockware/dev:latest
 
-# Wait until the container is fully started.
+##### Wait until the container is fully started.
 
-# Now, clone the Git repository into the running container. 
+##### Now, clone the Git repository into the running container. 
 
-# You might need to access the container's shell to run this command, depending on your setup.
+##### You might need to access the container's shell to run this command, depending on your setup.
 
 git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/AbmanTheme
 
-# In Visual Studio Code:
+#### In Visual Studio Code:
 
-# 1. Install the "Docker for Visual Studio Code" extension.
+1. Install the "Docker for Visual Studio Code" extension.
 
-# 2. Click the blue button at the bottom left.
+2. Click the blue button at the bottom left.
 
-# 3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
+3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
 
-# In the Visual Studio Code Terminal:
+#### In the Visual Studio Code Terminal:
 
 cd html
 
