@@ -1,3 +1,8 @@
+![Shopware Theme Installing Guide 4](https://github.com/abman95/shopwareCustomTheme/assets/132164884/4dad7f78-f59f-41a3-ad39-5fc46ebddc45)
+![Shopware Theme Installing Guide 3](https://github.com/abman95/shopwareCustomTheme/assets/132164884/a1cde54c-644d-4d0b-b654-45aec851167c)
+![Shopware Theme Installing Guide 2](https://github.com/abman95/shopwareCustomTheme/assets/132164884/e9a67a8f-2e5c-49f6-bba1-472c0d8a1a21)
+![Shopware Theme Installing Guide 1](https://github.com/abman95/shopwareCustomTheme/assets/132164884/1782619a-1fa0-4377-9586-0c03891bcdbe)
+
 ### Installation Instructions for Shopware Theme
 
 Operating System Used for Instruction: Linux Kubuntu
@@ -11,11 +16,7 @@ Operating System Used for Instruction: Linux Kubuntu
 -   Once installation completes, open your preferred IDE. For this guide, we'll use Visual Studio Code.
 -   In Visual Studio Code, install the extension "Docker for Visual Studio Code".
 -   After installation, a blue button appears at the bottom-left of the IDE. Click this button. A prompt appears at the top-center. Select "Attach to running Container" and choose the "dockware/dev:latest" container.
--   To integrate the Shopware theme, navigat![Shopware Theme Installing Guide 4](https://github.com/abman95/shopwareCustomTheme/assets/132164884/4dad7f78-f59f-41a3-ad39-5fc46ebddc45)
-![Shopware Theme Installing Guide 3](https://github.com/abman95/shopwareCustomTheme/assets/132164884/a1cde54c-644d-4d0b-b654-45aec851167c)
-![Shopware Theme Installing Guide 2](https://github.com/abman95/shopwareCustomTheme/assets/132164884/e9a67a8f-2e5c-49f6-bba1-472c0d8a1a21)
-![Shopware Theme Installing Guide 1](https://github.com/abman95/shopwareCustomTheme/assets/132164884/1782619a-1fa0-4377-9586-0c03891bcdbe)
-e to `html/custom/plugins` and insert the `AbmanTheme` folder.
+-   To integrate the Shopware theme, navigate to `html/custom/plugins` and insert the `AbmanTheme` folder.
 -   To activate the theme, open Terminal in Visual Studio Code, navigate to the `html` directory (`cd html`), and execute these commands in sequence:
     -   `bin/console plugin:refresh`
     -   `bin/console plugin:install --activate AbmanTheme`
