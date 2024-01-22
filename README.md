@@ -14,12 +14,6 @@ Operating System Used for Instruction: Linux Kubuntu
 
 Wait until the container is fully started.
 
-Now, clone the Git repository into the running container. 
-
-You might need to access the container's shell to run this command, depending on your setup.
-
-- `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins`
-
 #### In Visual Studio Code:
 
 1. Install the "Docker for Visual Studio Code" extension.
@@ -29,6 +23,14 @@ You might need to access the container's shell to run this command, depending on
 3. Choose "Attach to running Container" and select the "dockware/dev:latest" container.
 
 #### In the Visual Studio Code Terminal:
+Now, clone the Git repository into the running container. 
+
+You might need to access the container's shell to run this command, depending on your setup.
+
+- `git clone https://github.com/abman95/shopwareCustomTheme /var/www/html/custom/plugins/Theme`
+Move the "AbmanTheme" folder to html/custom/plugins and delete the Theme folder.
+
+Then run following codes:
 - `cd html`
 - `bin/console plugin:refresh`
 - `bin/console plugin:install --activate AbmanTheme`
