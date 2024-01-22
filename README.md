@@ -22,9 +22,7 @@ Operating System Used for Instruction: Linux Kubuntu
     -   `bin/console plugin:install --activate AbmanTheme`
     -   `bin/console theme:change`
 -   When prompted to select a theme, choose:
-
-    csharpCopy code
-
+-   
     `[0] Storefront
     [1] AbmanTheme`
 
