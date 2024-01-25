@@ -46,9 +46,7 @@ Then run following codes:
 - `bin/build-js.sh`
 
 #### Test the features by visiting localhost and localhost/admin in your browser.
-
-
-
+  
 ## Detailed Installation Guide:
 
 #### Terminal Instructions:
