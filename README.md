@@ -3,11 +3,11 @@
 ![Shopware Theme Installing Guide 2](https://github.com/abman95/shopwareCustomTheme/assets/132164884/e9a67a8f-2e5c-49f6-bba1-472c0d8a1a21)
 ![Shopware Theme Installing Guide 3](https://github.com/abman95/shopwareCustomTheme/assets/132164884/a1cde54c-644d-4d0b-b654-45aec851167c)
 
-### Installation Instructions for Shopware Theme
+# Installation Instructions for Shopware Theme
 
 Operating System Used for Instruction: Linux Kubuntu
 
-### Quick Guide: Shopware Theme Installation and Setup on Linux Kubuntu with Docker and Visual Studio Code
+## Quick Guide: Shopware Theme Installation and Setup on Linux Kubuntu with Docker and Visual Studio Code
 
 #### Terminal Instructions:
 - `docker run -p 80:80 dockware/dev:latest`
@@ -48,7 +48,7 @@ Then run following codes:
 #### Test the features by visiting localhost and localhost/admin in your browser.
 
 
-### Detailed Installation Guide:
+## Detailed Installation Guide:
 
 #### Terminal Instructions:
 
