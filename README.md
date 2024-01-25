@@ -45,7 +45,8 @@ Then run following codes:
 - `bin/build-administration.sh`
 - `bin/build-js.sh`
 
-#### Test the features by visiting localhost and localhost/admin in your browser.
+#### Test the features by visiting localhost and localhost/admin in your browser.  
+
   
 ## Detailed Installation Guide:
 
