@@ -2,6 +2,8 @@
 ![Shopware Theme Installing Guide 1](https://github.com/abman95/shopwareCustomTheme/assets/132164884/1782619a-1fa0-4377-9586-0c03891bcdbe)
 ![Shopware Theme Installing Guide 2](https://github.com/abman95/shopwareCustomTheme/assets/132164884/e9a67a8f-2e5c-49f6-bba1-472c0d8a1a21)
 ![Shopware Theme Installing Guide 3](https://github.com/abman95/shopwareCustomTheme/assets/132164884/a1cde54c-644d-4d0b-b654-45aec851167c)
+![Shopware Theme Installing Guide 6](https://github.com/abman95/shopwareCustomTheme/assets/132164884/ce1c29de-e94c-4524-a82a-31ba9e22bb24)
+![Shopware Theme Installing Guide 5](https://github.com/abman95/shopwareCustomTheme/assets/132164884/f8638815-7db8-4bb3-98a0-844ebbad18e8)
 
 # Installation Instructions for Shopware Theme
 
