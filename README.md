@@ -94,3 +94,19 @@ Then run following codes:
 -   On `localhost/admin`, go to `Catalogues/Products/Product FAQ`. Here, select a product to add FAQ questions and answers, which will be displayed on the product page.
 -   On the product detail page under "Produkt FAQ:", users can submit questions. These questions are stored locally using LocalStorage and appear under "Unbeantworteten FAQ Fragen" in the `Catalogues/Products/Product FAQ` section. Answering these questions will display the responses on the respective product detail page.
 -   Please note that the FAQs are currently stored only locally due to an incomplete controller and entity setup. The unfinished, non-functional controller and entity are located separately in the `AbmanTheme` folder for reference.
+
+
+##### Feature 3: Team Member Display CMS Block
+
+-   **Access Admin Page:** Go to localhost/admin.
+-   **Navigate to Catalogues/Categories:** Select "Catalogue #1".
+-   **Create Subcategory:** Click on the three dots and create a new subcategory named "Team".
+-   **Activate Team Category:** Click on "Team", change its status to "Active" and press Save.
+-   **Adjust Layout Settings:** Go to the "Layout" section, remove the "Default listing layout".
+-   **Create New Layout:** Choose "What kind of page would you like to create?" Select "Landing Page". Name the layout "Team".
+-   **Add Blocks:** Click on "Add blocks via drag & drop". Select the block category "Text & Images".
+-   **Select CMS Block:** Scroll down and drag the block "Employee picture with name and job title" into the layout.
+-   **Customize Content:** Change the image and text to employee's picture, name, and job title.
+-   **Save Changes:** After customization, click "Save".
+-   **Check Homepage:** A link titled "Team" with employee's picture, name, and job title appears on the homepage header.
+This CMS block allows the display of up to three team members per block, each with their own picture, name, and job title. The focus is on functionality, with design being secondary.
