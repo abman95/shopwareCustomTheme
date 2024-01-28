@@ -1,0 +1,98 @@
+Erst diesen Code in den Controller einfügen speichern. Dann auf url localhost/team gehen enter
+
+<?php
+
+namespace AbmanTheme\Storefront\Controller;
+
+use Symfony\Component\Routing\Annotation\Route;
+use Shopware\Core\System\SalesChannel\SalesChannelContext;
+use Shopware\Storefront\Controller\StorefrontController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Shopware\Storefront\Page\GenericPageLoader;
+use Psr\Container\ContainerInterface;
+use Twig\Environment;
+
+class TeamController extends StorefrontController
+{
+    protected $genericPageLoader;
+    protected $container;
+    protected $twig;
+
+    public function __construct(GenericPageLoader $genericPageLoader)
+    {
+        $this->genericPageLoader = $genericPageLoader;
+    }
+
+    #[Route('/team', name: 'frontend.abmantheme.team', methods: ['GET'], defaults: ["_routeScope" => "storefront"])]
+    public function showPage(Request $request, SalesChannelContext $context): Response
+    {
+        $page = $this->genericPageLoader->load($request, $context);
+        return $this->renderStorefront('@AbmanTheme/storefront/page/team/index.html.twig', [
+            'customParameter' => 'Benutzerdefinierter Parameterwert',
+            'page' => $page
+        ]);
+    }
+
+    public function setContainer(ContainerInterface $container): ?ContainerInterface
+    {
+        $this->container = $container;
+        return $container;
+    }
+
+    public function setTwig(Environment $twig): void
+    {
+        $this->twig = $twig;
+    }
+}
+
+
+
+
+
+
+dann ersetz den controller code mit diesem dann nochmal auf url localhost/team und enter dann geht die seite
+
+
+    <?php
+
+    namespace AbmanTheme\Storefront\Controller;
+
+    use Shopware\Core\Framework\Routing\Annotation\RouteScope as SWRouteScope;
+    use Shopware\Core\System\SalesChannel\SalesChannelContext;
+    use Shopware\Storefront\Controller\StorefrontController;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Routing\Annotation\Route;
+    use Shopware\Storefront\Page\GenericPageLoader;
+
+    /**
+    * @SWRouteScope(scopes={"storefront"})
+    */
+    class TeamController extends StorefrontController
+    {
+        protected $genericPageLoader;
+
+        public function __construct(
+            GenericPageLoader $genericPageLoader
+        ) {
+            $this->genericPageLoader = $genericPageLoader;
+        }
+
+        /**
+        * @Route("/team", name="frontend.abmantheme.team", methods={"GET"}, defaults={"_routeScope"={"storefront"}})
+        */
+        public function showPage(Request $request, SalesChannelContext $context): Response
+        {
+            $page = $this->genericPageLoader->load($request, $context);
+            return $this->renderStorefront('@AbmanTheme/storefront/page/team/index.html.twig', [
+                'customParameter' => 'Benutzerdefinierter Parameterwert',
+                'page' => $page
+            ]);
+        }
+    }
+
+
+
+
+php bin/console router:match /team
